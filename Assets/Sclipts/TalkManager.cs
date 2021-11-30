@@ -9,8 +9,6 @@ public class TalkManager : MonoBehaviour
     List<ITalkOrder> orders;
 
     [SerializeField]
-    string[] texts;
-    [SerializeField]
     TextWindow mainText;
     [SerializeField]
     TextWindow charaNameText;
@@ -21,7 +19,6 @@ public class TalkManager : MonoBehaviour
     [SerializeField]
     float textSpeed;
 
-    int current;
 
     public TextWindow MainText => mainText;
     public TextWindow CharaNameText => charaNameText;

@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backGrounds:
-  - {fileID: 1496931404}
-  - {fileID: 188643565}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &607311697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,12 +1108,6 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
-  texts:
-  - "\u3053\u3093\u306B\u3061\u306F"
-  - "Text \u306F\u30D5\u30A9\u30F3\u30C8\u30B5\u30A4\u30BA\u3001\u30B9\u30BF\u30A4\u30EB\u3001\u305D\u306E\u4ED6\u30C6\u30AD\u30B9\u30C8\u306E\u914D\u7F6E\u306E\u305F\u3081\u306B"
-  - "\u4F7F\u7528\u3055\u308C\u308B\u30D1\u30E9\u30E1\u30FC\u30BF\u30FC\u3092\u63D0\u4F9B\u3057\u3066\u3044\u307E\u3059\u3002"
-  - "Text \u306F\u30D5\u30A9\u30F3\u30C8\u30B5\u30A4\u30BA\u3001\u30B9\u30BF\u30A4\u30EB\u3001\u305D\u306E\u4ED6\u30C6\u30AD\u30B9\u30C8\u306E\u914D\u7F6E\u306E\u305F\u3081\u306B"
-  - "\u4F7F\u7528\u3055\u308C\u308B\u30D1\u30E9\u30E1\u30FC\u30BF\u30FC\u3092\u63D0\u4F9B\u3057\u3066\u3044\u307E\u3059\u3002"
   mainText: {fileID: 690422268}
   charaNameText: {fileID: 2004545047}
   bgManager: {fileID: 457122229}
@@ -1127,14 +1121,18 @@ MonoBehaviour:
         targetWindow: 1
         body: "\u306C\u305F\u304F\u3093"
         isFadeIn: 0
+        textWindow: {fileID: 0}
     00000001:
       type: {class: TextOrder, ns: , asm: Assembly-CSharp}
       data:
         targetWindow: 0
         body: "\u3066\u3059\u3068\u3066\u3059\u3068"
         isFadeIn: 1
+        textWindow: {fileID: 0}
     00000002:
       type: {class: WaitInputCtrl, ns: , asm: Assembly-CSharp}
+      data:
+        moving: 1
 --- !u!1 &1937105064
 GameObject:
   m_ObjectHideFlags: 0

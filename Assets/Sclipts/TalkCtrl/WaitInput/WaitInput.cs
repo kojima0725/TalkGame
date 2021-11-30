@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// TalkManagerが入力に応じてスキップを処理してくれるので今のところここでは入力を受け付けない
 /// </summary>
-public class WaitInputCtrl : ITalkOrder
+public class WaitInput : ITalkOrder
 {
     bool moving = true;
 

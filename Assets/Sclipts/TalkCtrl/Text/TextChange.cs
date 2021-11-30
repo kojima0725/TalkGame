@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TextOrder : ITalkOrder
+public class TextChange : ITalkOrder
 {
     public enum TargetWindow
     {
