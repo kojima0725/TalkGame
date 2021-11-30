@@ -1116,23 +1116,19 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: TextOrder, ns: , asm: Assembly-CSharp}
+      type: {class: TextChange, ns: , asm: Assembly-CSharp}
       data:
         targetWindow: 1
-        body: "\u306C\u305F\u304F\u3093"
+        body: "\u306C\u306C\u305F\u305F"
         isFadeIn: 0
-        textWindow: {fileID: 0}
     00000001:
-      type: {class: TextOrder, ns: , asm: Assembly-CSharp}
+      type: {class: TextChange, ns: , asm: Assembly-CSharp}
       data:
         targetWindow: 0
-        body: "\u3066\u3059\u3068\u3066\u3059\u3068"
+        body: "\u3066\u3059\u3066\u3059\u3068"
         isFadeIn: 1
-        textWindow: {fileID: 0}
     00000002:
-      type: {class: WaitInputCtrl, ns: , asm: Assembly-CSharp}
-      data:
-        moving: 1
+      type: {class: WaitInput, ns: , asm: Assembly-CSharp}
 --- !u!1 &1937105064
 GameObject:
   m_ObjectHideFlags: 0
