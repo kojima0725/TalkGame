@@ -18,6 +18,8 @@ public class TalkManager : MonoBehaviour
     CharaManager charaManager;
     [SerializeField]
     float textSpeed;
+    [SerializeField]
+    float bgFadeTime;
 
 
     public TextWindow MainText => mainText;
@@ -25,6 +27,8 @@ public class TalkManager : MonoBehaviour
     public BackGroundManager BgManager => bgManager;
     public CharaManager CharaManager => charaManager;
     public float TextSpeed => textSpeed;
+    public float BackgroundFadeTime => bgFadeTime;
+
 
     private void Start()
     {

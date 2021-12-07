@@ -410,8 +410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backGrounds:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1496931406}
+  - {fileID: 188643567}
 --- !u!1 &607311697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,11 +1108,15 @@ MonoBehaviour:
   - id: 0
   - id: 1
   - id: 2
+  - id: 3
+  - id: 4
+  - id: 5
   mainText: {fileID: 690422268}
   charaNameText: {fileID: 2004545047}
   bgManager: {fileID: 457122229}
   charaManager: {fileID: 607311699}
   textSpeed: 15
+  bgFadeTime: 1
   references:
     version: 1
     00000000:
@@ -1129,6 +1133,18 @@ MonoBehaviour:
         isFadeIn: 1
     00000002:
       type: {class: WaitInput, ns: , asm: Assembly-CSharp}
+    00000003:
+      type: {class: BgChange, ns: , asm: Assembly-CSharp}
+      data:
+        changeTo: 1
+        isFade: 1
+    00000004:
+      type: {class: WaitInput, ns: , asm: Assembly-CSharp}
+    00000005:
+      type: {class: BgChange, ns: , asm: Assembly-CSharp}
+      data:
+        changeTo: 0
+        isFade: 1
 --- !u!1 &1937105064
 GameObject:
   m_ObjectHideFlags: 0
