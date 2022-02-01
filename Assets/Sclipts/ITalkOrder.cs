@@ -12,6 +12,9 @@ using UnityEngine;
 //    WaitInput,
 //}
 
+/// <summary>
+/// TalkManager‚ªŽg—p‚·‚é
+/// </summary>
 public interface ITalkOrder
 {
     public void Do(TalkManager talkManager);
