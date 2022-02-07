@@ -462,7 +462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fa72c7abcd62643b1d0d79b8d7c62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charactors: []
+  charactors:
+  - {fileID: 990725096}
+  - {fileID: 1461781195}
 --- !u!1 &690422264
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &990725093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -718,7 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158e1bfcda848fe4992603fdc2575c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poses: []
+  poses:
+  - {fileID: 21300000, guid: 6a2c42d323b0f404ca254eb06216959b, type: 3}
+  - {fileID: 21300000, guid: 7f43460ee3ad210459fe7513100d1df4, type: 3}
 --- !u!1 &1290027517
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158e1bfcda848fe4992603fdc2575c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poses: []
+  poses:
+  - {fileID: 21300000, guid: 1c26c92b1e4c0554cac3696202ccb479, type: 3}
 --- !u!1 &1496931404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1116,9 @@ MonoBehaviour:
   - id: 3
   - id: 4
   - id: 5
+  - id: 6
+  - id: 7
+  - id: 8
   mainText: {fileID: 690422268}
   charaNameText: {fileID: 2004545047}
   bgManager: {fileID: 457122229}
@@ -1120,31 +1128,51 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: TextChange, ns: , asm: Assembly-CSharp}
+      type: {class: CharaShow, ns: , asm: Assembly-CSharp}
       data:
-        targetWindow: 1
-        body: "\u306C\u306C\u305F\u305F"
-        isFadeIn: 0
+        charaId: 0
     00000001:
       type: {class: TextChange, ns: , asm: Assembly-CSharp}
       data:
-        targetWindow: 0
-        body: "\u3066\u3059\u3066\u3059\u3068"
-        isFadeIn: 1
+        targetWindow: 1
+        body: "\u306C\u305F\u304F\u3093"
+        isFadeIn: 0
     00000002:
-      type: {class: WaitInput, ns: , asm: Assembly-CSharp}
+      type: {class: TextChange, ns: , asm: Assembly-CSharp}
+      data:
+        targetWindow: 0
+        body: "\u304A\u306A\u304B\u304C\u3059\u3044\u305F\u306A"
+        isFadeIn: 1
     00000003:
+      type: {class: WaitInput, ns: , asm: Assembly-CSharp}
+    00000004:
       type: {class: BgChange, ns: , asm: Assembly-CSharp}
       data:
         changeTo: 1
         isFade: 1
-    00000004:
-      type: {class: WaitInput, ns: , asm: Assembly-CSharp}
     00000005:
+      type: {class: Talk, ns: , asm: Assembly-CSharp}
+      data:
+        charaId: 0
+        charaName: "\u306C\u305F\u304F\u3093"
+        talkBody: "\u304A\u5BFF\u53F8\u304C\u305F\u3079\u305F\u3044\u306A"
+    00000006:
       type: {class: BgChange, ns: , asm: Assembly-CSharp}
       data:
         changeTo: 0
         isFade: 1
+    00000007:
+      type: {class: Talk, ns: , asm: Assembly-CSharp}
+      data:
+        charaId: 0
+        charaName: "\u306C\u305F\u304F\u3093"
+        talkBody: "\u3042\u3001\u79C1\u306F\u7262\u5C4B\u306E\u4E2D\u306B\u3044\u308B\u306E\u3067\u5BFF\u53F8\u3092\u305F\u3079\u308B\u3053\u3068\u306F\u3067\u304D\u307E\u305B\u3093\u3002"
+    00000008:
+      type: {class: Talk, ns: , asm: Assembly-CSharp}
+      data:
+        charaId: 1
+        charaName: "\u677F\u524D"
+        talkBody: "\u304A\u5BFF\u53F8\u3092\u63E1\u3063\u3066\u3042\u3052\u308B\u3088"
 --- !u!1 &1937105064
 GameObject:
   m_ObjectHideFlags: 0

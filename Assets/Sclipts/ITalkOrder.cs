@@ -13,7 +13,7 @@ using UnityEngine;
 //}
 
 /// <summary>
-/// TalkManagerが使用する
+/// TalkOrderProcesserクラスが処理する
 /// </summary>
 public interface ITalkOrder
 {

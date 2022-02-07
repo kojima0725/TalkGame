@@ -12,13 +12,23 @@ public class TextChange : ITalkOrder
     }
     [SerializeField]
     TargetWindow targetWindow;
-    [SerializeField]
+    [SerializeField, TextArea]
     string body;
     [SerializeField]
     bool isFadeIn;
 
 
     TextWindow textWindow;
+
+
+    public TextChange() { }
+
+    public TextChange(TargetWindow targetWindow, string body, bool isFadeIn)
+    {
+        this.targetWindow = targetWindow;
+        this.body = body;
+        this.isFadeIn = isFadeIn;
+    }
 
     public bool Doing => textWindow?.Moving ?? false;
 

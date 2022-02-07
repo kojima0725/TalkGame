@@ -26,9 +26,3 @@ public class WaitInput : ITalkOrder
         //DoNothing
     }
 }
-
-
-public class WaitInputCtrl
-{
-
-}

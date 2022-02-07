@@ -4,20 +4,31 @@ using UnityEngine;
 
 public class CharaShow : ITalkOrder
 {
-    public bool Doing => throw new System.NotImplementedException();
+    [SerializeField]
+    int charaId;
+
+    public CharaShow(){ }
+
+    public CharaShow(int charaId)
+    {
+        this.charaId = charaId;
+    }
+
+
+    public bool Doing => false;
 
     public void Do(TalkManager talkManager)
     {
-        throw new System.NotImplementedException();
+        talkManager.CharaManager.ShowChara(charaId);
     }
 
     public void RequestSkip()
     {
-        throw new System.NotImplementedException();
+        return;
     }
 
     public void UpdateDo()
     {
-        throw new System.NotImplementedException();
+        return;
     }
 }
