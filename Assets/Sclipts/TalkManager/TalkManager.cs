@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class TalkManager : MonoBehaviour
 {
     [SerializeReference, SubclassSelector]
@@ -74,33 +75,9 @@ public class TalkManager : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Mouse0);
     }
 
-    //if (Input.GetKeyDown(KeyCode.Mouse0))
-    //{
-    //    if (mainText.Moving())
-    //    {
-    //        mainText.Skip();
-    //        return;
-    //    }
 
-    //    string newtext;
-    //    current++;
-    //    if (current >= texts.Length)
-    //    {
-    //        if (current > texts.Length)
-    //        {
-    //            return;
-    //        }
-    //        else
-    //        {
-    //            newtext = "‚ß‚Å‚½‚µ‚ß‚Å‚½‚µ";
-    //        }
-    //    }
-    //    else
-    //    {
-    //        newtext = texts[current];
-    //    }
 
-    //    mainText.SetNewText(newtext, speed);
-    //}
-
+#if UNITY_EDITOR
+    public List<ITalkOrder> TalkOrders { get => orders; set => orders = value; }
+#endif
 }
