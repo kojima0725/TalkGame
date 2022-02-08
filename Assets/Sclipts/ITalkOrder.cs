@@ -2,16 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//今の所必要なし
-//public enum OrderType
-//{
-//    ChangeBG,
-//    Talk,
-//    ShowChara,
-//    HIdeChara,
-//    WaitInput,
-//}
-
 /// <summary>
 /// TalkOrderProcesserクラスが処理する
 /// </summary>
