@@ -23,7 +23,6 @@ public class TalkManager : MonoBehaviour
     [SerializeField]
     float bgFadeTime;
 
-    TalkOrderProcesser processer;
     #endregion
 
     #region PUBLIC
@@ -39,8 +38,13 @@ public class TalkManager : MonoBehaviour
 
     private void Start()
     {
-        processer = new TalkOrderProcesser(orders, this);
-        processer.StartProcess();
+        TalkOrderProcesser processer = new TalkOrderProcesser(orders, this);
+        processer.StartProcess(EndTalk);
+    }
+
+    private void EndTalk()
+    {
+        Debug.Log("会話シーンが終了しました");
     }
 
 

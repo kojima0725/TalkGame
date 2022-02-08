@@ -63,6 +63,14 @@ public class TextChange : ITalkOrder
 }
 
 
+
+
+
+
+
+
+
+
 /// <summary>
 /// これはダミーです！！使用非推奨！！DoNotUseThis
 /// for Unity Bug Fix

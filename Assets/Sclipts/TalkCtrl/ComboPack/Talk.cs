@@ -12,16 +12,14 @@ public class Talk : ITalkOrder
     string talkBody;
 
 
-
-    TalkOrderProcesser processer;
-
-    public bool Doing => processer?.Doing ?? true;
+    bool doing = true;
+    public bool Doing => doing;
 
     public void Do(TalkManager talkManager)
     {
         ITalkOrder[] talkOrders = BuildOrders();
-        processer = new TalkOrderProcesser(talkOrders, talkManager);
-        processer.StartProcess();
+        TalkOrderProcesser processer = new TalkOrderProcesser(talkOrders, talkManager);
+        processer.StartProcess(OnEndProcess);
     }
 
     public void RequestSkip()
@@ -33,6 +31,11 @@ public class Talk : ITalkOrder
     public void UpdateDo()
     {
         return;
+    }
+
+    private void OnEndProcess()
+    {
+        doing = false;
     }
 
     ITalkOrder[] BuildOrders()

@@ -10,6 +10,7 @@ public class TalkOrderProcesser
 {
     List<ITalkOrder> orders;
     TalkManager manager;
+    System.Action onProcessEnd;
 
     public bool Doing => orders.Count > 0;
 
@@ -19,10 +20,14 @@ public class TalkOrderProcesser
         this.manager = manager;
     }
 
-    public void StartProcess()
+    public void StartProcess(System.Action onProcessEnd = null)
     {
         orders[0].Do(manager);
         manager.DoCoroutine(UpdateProcess);
+        if (onProcessEnd != null)
+        {
+            this.onProcessEnd += onProcessEnd;
+        }
     }
 
     private IEnumerator UpdateProcess()
@@ -48,7 +53,10 @@ public class TalkOrderProcesser
             }
             yield return null;
         }
+
+        onProcessEnd?.Invoke();
     }
+
 
     private bool GetSkipInput()
     {
