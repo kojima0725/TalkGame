@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// TalkManagerが入力に応じてスキップを処理してくれるので今のところここでは入力を受け付けない
+/// TalkOrderProcesserが入力に応じてスキップを処理してくれるので今のところここでは入力を管理していない
 /// </summary>
 public class WaitInput : ITalkOrder
 {
