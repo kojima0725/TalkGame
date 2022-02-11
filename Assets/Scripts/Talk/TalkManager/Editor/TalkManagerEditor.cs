@@ -21,12 +21,7 @@ public class TalkManagerEditor : Editor
         base.OnInspectorGUI();
     }
 
-    [System.Serializable]
-    class TalkOrderList
-    {
-        [SerializeReference]
-        public List<ITalkOrder> order;
-    }
+    
 
     void SaveJson()
     {
