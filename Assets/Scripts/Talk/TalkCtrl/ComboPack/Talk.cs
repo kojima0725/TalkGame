@@ -19,7 +19,7 @@ public class Talk : ITalkOrder
     {
         ITalkOrder[] talkOrders = BuildOrders();
         TalkOrderProcesser processer = new TalkOrderProcesser(talkOrders, talkManager);
-        processer.StartProcess(OnEndProcess);
+        processer.StartAllProcess(OnEndProcess);
     }
 
     public void RequestSkip()
