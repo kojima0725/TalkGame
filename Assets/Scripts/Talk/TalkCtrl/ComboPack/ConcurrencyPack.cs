@@ -10,7 +10,7 @@ public class ConcurrencyPack : ITalkOrder
     [SerializeReference, SubclassSelector]
     List<ITalkOrder> orders;
 
-    WaitInput waitInput;
+    WaitInput waitInput = new WaitInput();
     bool processDoing = true;
 
     public bool Doing => waitInput.Doing;
@@ -20,6 +20,7 @@ public class ConcurrencyPack : ITalkOrder
         processDoing = true;
         TalkOrderProcesser processer = new TalkOrderProcesser(orders, talkManager);
         processer.StartAllProcess(() => processDoing = false);
+        waitInput.Do(talkManager);
     }
 
     public void RequestSkip()
@@ -35,6 +36,10 @@ public class ConcurrencyPack : ITalkOrder
 
     public void UpdateDo()
     {
-        //DoNothing
+        if (!processDoing)
+        {
+            waitInput.UpdateDo();
+        }
+        return;
     }
 }

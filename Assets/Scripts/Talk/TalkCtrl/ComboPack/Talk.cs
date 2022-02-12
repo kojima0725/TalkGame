@@ -37,6 +37,10 @@ public class Talk : ITalkOrder
 
     public void UpdateDo()
     {
+        if (!processDoing)
+        {
+            waitInput.UpdateDo();
+        }
         return;
     }
 
