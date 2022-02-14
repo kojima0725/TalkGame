@@ -46,7 +46,7 @@ public class TalkManager : MonoBehaviour
         processer.StartProcess(EndTalk);
     }
 
-    private void NewTalkFromJson(string fileName)
+    public void NewTalkFromJson(string fileName)
     {
         // Addressablesによる読み込み
         Addressables.LoadAssetAsync<TextAsset>(fileName).Completed += handle =>
@@ -58,13 +58,13 @@ public class TalkManager : MonoBehaviour
             //命令実行
             TalkOrderProcesser processer = new TalkOrderProcesser(orders, this);
             processer.StartProcess(EndTalk);
-            Debug.Log("新しいシナリオを実行開始しました");
+            Debug.Log($"新しいシナリオ{fileName}を実行開始しました");
         };
     }
 
     private void EndTalk()
     {
-        Debug.Log("会話シーンが終了しました");
+        Debug.Log("シナリオが終了しました");
     }
 
 
