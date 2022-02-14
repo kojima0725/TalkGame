@@ -15,6 +15,14 @@ public class ConcurrencyPack : ITalkOrder
 
     public bool Doing => waitInput.Doing;
 
+    public ConcurrencyPack() { }
+
+    public ConcurrencyPack(IEnumerable<ITalkOrder> orders)
+    {
+        this.orders = new List<ITalkOrder>(orders);
+    }
+
+
     public void Do(TalkManager talkManager)
     {
         processDoing = true;
