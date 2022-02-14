@@ -20,6 +20,8 @@ public class TalkManager : MonoBehaviour
     [SerializeField]
     CharaManager charaManager;
     [SerializeField]
+    SelectButtonManager selectButtonManager;
+    [SerializeField]
     float textSpeed;
     [SerializeField]
     float bgFadeTime;
@@ -31,6 +33,7 @@ public class TalkManager : MonoBehaviour
     public TextWindow CharaNameText => charaNameText;
     public BackGroundManager BgManager => bgManager;
     public CharaManager CharaManager => charaManager;
+    public SelectButtonManager SelectButtonManager => selectButtonManager;
     public float TextSpeed => textSpeed;
     public float BackgroundFadeTime => bgFadeTime;
     public void DoCoroutine(System.Func<IEnumerator> c) => StartCoroutine(c());
