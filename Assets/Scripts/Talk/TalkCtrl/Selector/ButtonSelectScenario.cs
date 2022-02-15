@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSelectAction : ITalkOrder
+public class ButtonSelectScenario : ITalkOrder
 {
     [SerializeField]
-    List<ButtonNameAndAction> choices;
+    List<ButtonNameAndScenario> choices;
 
     bool doing = true;
     public bool Doing => doing;
-
-    TalkOrderProcesser processer;
 
     public void Do(TalkManager talkManager)
     {
@@ -31,23 +29,22 @@ public class ButtonSelectAction : ITalkOrder
         //‰½‚à‚µ‚È‚¢
     }
 
-    private void Selected(ButtonNameAndAction choice, TalkManager talkManager)
+    private void Selected(ButtonNameAndScenario choice, TalkManager talkManager)
     {
-        processer = new TalkOrderProcesser(choice.Action, talkManager);
-        processer.StartProcess(() => doing = false);
+        NewScenario newScenario = new NewScenario(choice.Scenario);
+        newScenario.Do(talkManager);
+        doing = false;
     }
 
     [System.Serializable]
-    public class ButtonNameAndAction
+    public class ButtonNameAndScenario
     {
         [SerializeField]
         string buttonName;
-        [SerializeReference, SubclassSelector]
-        List<ITalkOrder> action;
+        [SerializeField]
+        string scenario;
 
         public string Name => buttonName;
-        public List<ITalkOrder> Action => action;
+        public string Scenario => scenario;
     }
 }
-
-
