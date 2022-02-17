@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// 最初にStartProcessを呼び出してから、毎フレームUpdateProcessを呼ぶこと
+/// 会話シーンの流れを処理していくクラス
 /// </summary>
 public class TalkOrderProcesser
 {

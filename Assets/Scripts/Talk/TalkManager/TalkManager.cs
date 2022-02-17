@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// 会話シーンを管理するクラス
+/// </summary>
 [System.Serializable]
 public class TalkManager : MonoBehaviour
 {
