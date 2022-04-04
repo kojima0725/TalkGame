@@ -36,11 +36,12 @@ public class Talk : ITalkOrder
 
     ITalkOrder[] BuildOrders()
     {
-        ITalkOrder[] a = new ITalkOrder[3];
+        ITalkOrder[] a = new ITalkOrder[4];
 
         a[0] = new CharaShow(charaId);
         a[1] = new TextChange(TextChange.TargetWindow.NAME, charaName, false);
         a[2] = new TextChange(TextChange.TargetWindow.MAIN, talkBody, true);
+        a[3] = new WaitInput();
 
         return a;
     }
