@@ -55,11 +55,12 @@ public class TalkOrderProcesser
     /// <returns></returns>
     private IEnumerator UpdateProcess()
     {
+        //命令が無くなるまで毎フレーム実行する
         while (orders.Count != 0)
         {
             if (!orders[0].Doing)
             {
-                //現在の命令が終了したら削除して次に移る
+                //現在の命令が終了した場合削除して次に移る
                 orders.RemoveAt(0);
                 if (orders.Count != 0){ orders[0]?.Do(manager); }
             }
@@ -77,6 +78,8 @@ public class TalkOrderProcesser
             yield return null;
         }
 
+
+        //全処理終了時にコールバックする
         onProcessEnd?.Invoke();
     }
 
@@ -86,14 +89,16 @@ public class TalkOrderProcesser
     /// <returns></returns>
     private IEnumerator UpdateAllProcess()
     {
+        //命令が無くなるまで毎フレーム実行する
         while (orders.Count != 0)
         {
             //処理完了したものは削除しておく
             orders.RemoveAll(x => !x.Doing);
 
-            //Update
+            //スキップ入力の有無で処理を変える
             if (GetSkipInput())
             {
+                //スキップをリクエストしながらUpdate
                 foreach (var order in orders)
                 {
                     order.UpdateDo();
@@ -102,6 +107,7 @@ public class TalkOrderProcesser
             }
             else
             {
+                //通常のUpdate
                 foreach (var order in orders)
                 {
                     order.UpdateDo();
@@ -110,6 +116,7 @@ public class TalkOrderProcesser
             yield return null;
         }
 
+        //全処理終了時にコールバックする
         onProcessEnd?.Invoke();
     }
 
