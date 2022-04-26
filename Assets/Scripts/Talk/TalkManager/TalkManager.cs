@@ -75,16 +75,18 @@ public class TalkManager : MonoBehaviour
     /// <param name="fileName"></param>
     public void NewTalkFromJson(string fileName)
     {
-        string json = Resources.Load<TextAsset>(fileName).ToString();
-
-
-        //デシリアライズ
-        if (string.IsNullOrEmpty(json)) return;
-        orders = JsonUtility.FromJson<TalkOrderList>(json).order;
-        //命令実行
-        TalkOrderProcesser processer = new TalkOrderProcesser(orders, this);
-        processer.StartProcess(EndTalk);
-        Debug.Log($"新しいシナリオ{fileName}を実行開始しました");
+        // Addressablesによる読み込み
+        Addressables.LoadAssetAsync<TextAsset>(fileName).Completed += handle =>
+        {
+            string json = handle.Result.ToString();
+            //デシリアライズ
+            if (string.IsNullOrEmpty(json)) return;
+            orders = JsonUtility.FromJson<TalkOrderList>(json).order;
+            //命令実行
+            TalkOrderProcesser processer = new TalkOrderProcesser(orders, this);
+            processer.StartProcess(EndTalk);
+            Debug.Log($"新しいシナリオ{fileName}を実行開始しました");
+        };
 
     }
 
