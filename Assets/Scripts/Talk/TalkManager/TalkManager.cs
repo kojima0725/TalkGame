@@ -30,6 +30,8 @@ public class TalkManager : MonoBehaviour
     [SerializeField]
     float bgFadeTime;
 
+    bool skipInput;
+
     #endregion
 
     #region PUBLIC
@@ -41,6 +43,18 @@ public class TalkManager : MonoBehaviour
     public float TextSpeed => textSpeed;
     public float BackgroundFadeTime => bgFadeTime;
     public void DoCoroutine(System.Func<IEnumerator> c) => StartCoroutine(c());
+    /// <summary>
+    /// ï¿½Xï¿½Lï¿½bï¿½vï¿½ï¿½ï¿½Í‚ÍAï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Éƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å’ï¿½ï¿½ï¿½
+    /// </summary>
+    public bool SkipInput
+    {
+        get
+        {
+            bool r = skipInput;
+            skipInput = false;
+            return r;
+        }
+    }
     #endregion
 
 
@@ -69,6 +83,15 @@ public class TalkManager : MonoBehaviour
     private void EndTalk()
     {
         Debug.Log("ƒVƒiƒŠƒI‚ªI—¹‚µ‚Ü‚µ‚½");
+    }
+
+    private void UpdateSkipInput()
+    {
+        skipInput = false;
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            skipInput = true;
+        }
     }
 
 
