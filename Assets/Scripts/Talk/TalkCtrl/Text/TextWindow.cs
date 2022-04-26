@@ -35,6 +35,7 @@ public class TextWindow : MonoBehaviour
     IEnumerator TextFadeIn(string text, float waitTime, int gAmount, float gWaitTime)
     {
         moving = true;
+        skip = false;
 
         char[] textChar = text.ToCharArray();
         Debug.Log(textChar.Length);

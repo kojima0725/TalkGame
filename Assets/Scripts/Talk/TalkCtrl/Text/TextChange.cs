@@ -17,7 +17,8 @@ public class TextChange : ITalkOrder
     [SerializeField]
     bool isFadeIn;
 
-
+    const float waitTime = 0.5f;
+    float waitTimer = 0;
     TextWindow textWindow;
 
 
@@ -30,7 +31,7 @@ public class TextChange : ITalkOrder
         this.isFadeIn = isFadeIn;
     }
 
-    public bool Doing => textWindow?.Moving ?? false;
+    public bool Doing => (waitTimer > 0) || (textWindow?.Moving ?? false);
 
     public void Do(TalkManager talkManager)
     {
@@ -46,14 +47,21 @@ public class TextChange : ITalkOrder
                 break;
         }
 
-        if (isFadeIn) { textWindow.SetNewText(body, talkManager.TextSpeed); }
+        if (isFadeIn) 
+        {
+            waitTimer = waitTime;
+            textWindow.SetNewText(body, talkManager.TextSpeed); 
+        }
         else { textWindow.SetNewText(body); }
         
     }
 
     public void UpdateDo()
     {
-        //DoNothing;
+        if (!textWindow?.Moving ?? false)
+        {
+            waitTimer -= Time.deltaTime;
+        }
     }
 
     public void RequestSkip()
