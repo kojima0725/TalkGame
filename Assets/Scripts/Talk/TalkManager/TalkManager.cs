@@ -44,7 +44,7 @@ public class TalkManager : MonoBehaviour
     public float BackgroundFadeTime => bgFadeTime;
     public void DoCoroutine(System.Func<IEnumerator> c) => StartCoroutine(c());
     /// <summary>
-    /// ï¿½Xï¿½Lï¿½bï¿½vï¿½ï¿½ï¿½Í‚ÍAï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Éƒtï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Å’ï¿½ï¿½ï¿½
+    /// ƒXƒLƒbƒv“ü—Í‚ÍAæ‚èo‚µ‚Éƒtƒ‰ƒO‚ª—‚¿‚é‚Ì‚Å’ˆÓ
     /// </summary>
     public bool SkipInput
     {
@@ -64,20 +64,33 @@ public class TalkManager : MonoBehaviour
         processer.StartProcess(EndTalk);
     }
 
+    private void Update()
+    {
+        UpdateSkipInput();
+    }
+
+    /// <summary>
+    /// jsonƒtƒ@ƒCƒ‹‚©‚çƒVƒiƒŠƒI‚ğ¶¬‚µAV‚½‚Éˆ—‚ğŠJn‚·‚é
+    /// </summary>
+    /// <param name="fileName"></param>
     public void NewTalkFromJson(string fileName)
     {
-        // Addressables‚É‚æ‚é“Ç‚İ‚İ
-        Addressables.LoadAssetAsync<TextAsset>(fileName).Completed += handle =>
-        {
-            string json = handle.Result.ToString();
-            //ƒfƒVƒŠƒAƒ‰ƒCƒY
-            if (string.IsNullOrEmpty(json)) return;
-            orders = JsonUtility.FromJson<TalkOrderList>(json).order;
-            //–½—ßÀs
-            TalkOrderProcesser processer = new TalkOrderProcesser(orders, this);
-            processer.StartProcess(EndTalk);
-            Debug.Log($"V‚µ‚¢ƒVƒiƒŠƒI{fileName}‚ğÀsŠJn‚µ‚Ü‚µ‚½");
-        };
+        string json = Resources.Load<TextAsset>(fileName).ToString();
+
+
+        //ƒfƒVƒŠƒAƒ‰ƒCƒY
+        if (string.IsNullOrEmpty(json)) return;
+        orders = JsonUtility.FromJson<TalkOrderList>(json).order;
+        //–½—ßÀs
+        TalkOrderProcesser processer = new TalkOrderProcesser(orders, this);
+        processer.StartProcess(EndTalk);
+        Debug.Log($"V‚µ‚¢ƒVƒiƒŠƒI{fileName}‚ğÀsŠJn‚µ‚Ü‚µ‚½");
+
+    }
+
+    public void StopAllProcess()
+    {
+        StopAllCoroutines();
     }
 
     private void EndTalk()
